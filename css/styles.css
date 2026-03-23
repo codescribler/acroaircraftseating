@@ -1,0 +1,488 @@
+/* ============================================================================
+   ACRO AIRCRAFT SEATING — PREMIUM DEMO SITE STYLES
+   Custom styles built on Tailwind CSS foundation
+   ============================================================================ */
+
+/* CSS Custom Properties */
+:root {
+    --color-primary-dark: #0C1B2A;
+    --color-teal: #00A99D;
+    --color-gold: #E9A827;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #475569;
+    --color-surface: #FFFFFF;
+    --color-background: #FAFAFA;
+    --color-neutral-light: #F1F5F9;
+    --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ============================================================================
+   GOOGLE FONTS
+   ============================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ============================================================================
+   RESET & BASE STYLES
+   ============================================================================ */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    /* Note: scroll-behavior: smooth removed intentionally.
+       Smooth scrolling causes jittery scrubbing on the scroll-linked video hero.
+       Anchor smooth scrolling is handled in JS via scrollIntoView({ behavior: 'smooth' }) instead. */
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-surface);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+/* ============================================================================
+   SKIP TO CONTENT LINK (Accessibility)
+   ============================================================================ */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-teal);
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: underline;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* ============================================================================
+   NAVIGATION STYLES
+   ============================================================================ */
+#navbar {
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s var(--ease-smooth);
+}
+
+#navbar.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#navbar a {
+    position: relative;
+}
+
+#navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-teal);
+    transition: width 0.3s var(--ease-smooth);
+}
+
+#navbar a:hover::after {
+    width: 100%;
+}
+
+/* ============================================================================
+   ANIMATIONS - ENTRANCE
+   ============================================================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================================================
+   ANIMATION CLASSES
+   ============================================================================ */
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s var(--ease-smooth) forwards;
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 0.8s var(--ease-smooth) forwards;
+}
+
+.animate-fadeInLeft {
+    animation: fadeInLeft 0.8s var(--ease-smooth) forwards;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.5s var(--ease-smooth) forwards;
+}
+
+/* Scroll Reveal Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transition: opacity 0.7s var(--ease-smooth), transform 0.7s var(--ease-smooth);
+    transform: translateY(20px);
+}
+
+.reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================================================
+   HERO SECTION — SCROLL-LINKED VIDEO
+   ============================================================================ */
+.hero-section {
+    position: relative;
+}
+
+.hero-sticky {
+    will-change: transform;
+}
+
+.hero-section video {
+    will-change: opacity;
+    transition: opacity 0.3s ease;
+}
+
+.hero-section h1 {
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+}
+
+/* Fade out hero content as user scrolls deeper */
+.hero-content {
+    transition: opacity 0.15s ease-out;
+}
+
+/* Scroll hint bounces then fades on scroll */
+.hero-scroll-hint {
+    transition: opacity 0.4s ease;
+}
+
+.hero-section.scrolled-past .hero-scroll-hint {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@keyframes gentlePulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.hero-scroll-hint .animate-pulse {
+    animation: gentlePulse 2s ease-in-out infinite;
+}
+
+/* ============================================================================
+   BUTTONS & INTERACTIONS
+   ============================================================================ */
+.cta-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s var(--ease-smooth);
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.cta-button:active::before {
+    animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        width: 300px;
+        height: 300px;
+        opacity: 0;
+    }
+}
+
+/* ============================================================================
+   SUCCESS ICON CIRCLE
+   ============================================================================ */
+.success-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--color-teal);
+    color: white;
+    flex-shrink: 0;
+}
+
+.success-icon-circle svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2.5;
+}
+
+/* ============================================================================
+   SECTION STYLING
+   ============================================================================ */
+section {
+    overflow: hidden;
+}
+
+/* Hero needs overflow visible for position:sticky to work */
+#hero {
+    overflow: visible;
+}
+
+/* ============================================================================
+   TESTIMONIAL CARDS
+   ============================================================================ */
+.testimonial-card {
+    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px);
+}
+
+/* ============================================================================
+   SERVICE CARDS
+   ============================================================================ */
+.service-card {
+    transition: all 0.3s var(--ease-smooth);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 169, 157, 0.1);
+}
+
+/* ============================================================================
+   MODAL STYLES
+   ============================================================================ */
+#demoModal {
+    animation: fadeIn 0.3s var(--ease-smooth) forwards;
+}
+
+#demoModal.hidden {
+    display: none;
+}
+
+#demoModal:not(.hidden) {
+    display: flex;
+}
+
+/* Modal backdrop animation */
+#demoModal > div:first-child {
+    animation: fadeIn 0.3s var(--ease-smooth);
+}
+
+/* Modal card animation */
+#demoModal > div:last-child {
+    animation: slideUp 0.4s var(--ease-smooth);
+}
+
+/* ============================================================================
+   FOCUS STYLES (Accessibility)
+   ============================================================================ */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+@media (max-width: 768px) {
+    /* On mobile, reduce the scroll distance for the video hero */
+    .hero-section {
+        height: 200vh;
+    }
+
+    /* Reduce animation complexity on smaller screens */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+}
+
+/* ============================================================================
+   REDUCED MOTION (Accessibility)
+   ============================================================================ */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal-on-scroll {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+@media print {
+    #navbar,
+    #demoModal,
+    .skip-to-content {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* ============================================================================
+   UTILITY FIXES & OVERRIDES
+   ============================================================================ */
+
+/* Ensure images don't exceed container width */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tailwind whitespace utility fix */
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+/* Custom shadow for cards */
+.shadow-sm {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Teal accent text */
+.text-acro-teal {
+    color: var(--color-teal);
+}
+
+/* Gold accent text */
+.text-acro-gold {
+    color: var(--color-gold);
+}
+
+/* Dark background */
+.bg-acro-dark {
+    background-color: var(--color-primary-dark);
+}
+
+/* ============================================================================
+   END OF STYLES
+   ============================================================================ */

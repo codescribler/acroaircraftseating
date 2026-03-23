@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acro Aircraft Seating — Premium Cabin Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        outfit: ['Outfit', 'sans-serif'],
+                        'dm-sans': ['DM Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        'acro-dark': '#0C1B2A',
+                        'acro-teal': '#00A99D',
+                        'acro-gold': '#E9A827',
+                    },
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "vumg7p891a");
+    </script>
+</head>
+<body class="font-dm-sans text-slate-900 bg-white">
+    <!-- Skip to content link -->
+    <a href="#main" class="skip-to-content">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+                <img src="images/logo.svg" alt="Acro Aircraft Seating" class="h-8 md:h-10 w-auto navbar-logo transition-all duration-300">
+            </div>
+
+            <!-- Nav Links (hidden on mobile) -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#products" class="nav-link text-sm font-medium text-slate-700 hover:text-acro-teal transition-colors">Products</a>
+                <a href="#about" class="nav-link text-sm font-medium text-slate-700 hover:text-acro-teal transition-colors">About</a>
+                <a href="#support" class="nav-link text-sm font-medium text-slate-700 hover:text-acro-teal transition-colors">Support</a>
+                <a href="#news" class="nav-link text-sm font-medium text-slate-700 hover:text-acro-teal transition-colors">News</a>
+                <a href="#contact" class="nav-link text-sm font-medium text-slate-700 hover:text-acro-teal transition-colors">Contact</a>
+            </div>
+
+            <!-- CTA Button -->
+            <button class="cta-button px-6 py-2 bg-acro-teal text-white rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                Request Consultation
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section — Scroll-Linked Video (outside main so it starts at scroll 0) -->
+    <section id="hero" class="hero-section relative bg-slate-950 text-white pt-16" style="height: 250vh;">
+            <!-- Sticky viewport container — pinned below navbar (top-16 = 64px) -->
+            <div class="hero-sticky sticky top-16 w-full overflow-hidden" style="height: calc(100vh - 4rem);">
+                <!-- Video background -->
+                <video
+                    id="heroVideo"
+                    class="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500"
+                    src="images/acro-hero-web.mp4"
+                    poster="images/hero-poster.jpg"
+                    muted
+                    playsinline
+                    preload="auto"
+                    aria-hidden="true"
+                ></video>
+
+                <!-- Gradient overlay — light, only on the left for text legibility -->
+                <div class="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/20 to-transparent"></div>
+
+                <!-- Hero content — pinned left -->
+                <div class="hero-content relative z-10 h-full flex items-center px-6 md:px-12 lg:px-20">
+                    <div class="max-w-xl">
+                        <p class="text-sm uppercase tracking-[0.2em] text-acro-teal font-semibold mb-5 opacity-0 animate-fadeInUp" style="animation-delay: 0.1s">
+                            Trusted by 28+ Airlines Worldwide
+                        </p>
+                        <h1 class="font-outfit text-4xl md:text-5xl lg:text-[3.5rem] xl:text-[4rem] font-bold leading-[1.08] mb-6 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s">
+                            Aircraft Seating That Your Passengers Love and Your Engineers Trust
+                        </h1>
+                        <p class="text-lg md:text-xl text-slate-200 mb-4 opacity-0 animate-fadeInUp leading-relaxed" style="animation-delay: 0.3s">
+                            Bespoke, lightweight, beautifully engineered seats — designed in partnership with your airline, supported for life by AcroCare™.
+                        </p>
+                        <p class="text-base text-slate-300/80 mb-10 opacity-0 animate-fadeInUp leading-relaxed max-w-md" style="animation-delay: 0.35s">
+                            Every seat is a brand statement, a passenger experience, and an engineering challenge — all at once. Acro has spent 20 years perfecting that balance.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s">
+                            <button class="cta-button px-7 py-3.5 bg-acro-teal text-white font-semibold rounded-lg hover:bg-opacity-90 transition-all duration-300 text-sm tracking-wide">
+                                Request Your Bespoke Consultation
+                            </button>
+                            <button class="cta-button px-7 py-3.5 border-2 border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/70 transition-all duration-300 text-sm tracking-wide">
+                                Explore Our Product Range
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fadeInUp hero-scroll-hint" style="animation-delay: 0.8s">
+                    <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Scroll to explore</span>
+                    <div class="w-px h-8 bg-gradient-to-b from-white/50 to-transparent animate-pulse"></div>
+                </div>
+            </div>
+    </section>
+
+    <main id="main">
+        <!-- Problem Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Left: Problem Statement -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                            The Challenge
+                        </p>
+                        <h2 class="font-outfit text-3xl md:text-4xl font-bold mb-6 text-slate-950">
+                            Choosing the Wrong Seating Partner Costs More Than Money
+                        </h2>
+                        <p class="text-slate-600 text-lg leading-relaxed">
+                            The pressure to make the right seating decision is immense. It touches every passenger, every flight, every day — for years. And yet too many airlines settle for off-the-shelf compromises or suppliers who treat them as transactions, not partners.
+                        </p>
+                    </div>
+
+                    <!-- Right: Pain Points -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <ul class="space-y-5">
+                            <li class="flex gap-4">
+                                <div class="flex-shrink-0 w-3 h-3 bg-acro-teal rounded-full mt-2"></div>
+                                <span class="text-slate-700">Off-the-shelf designs that make your cabin look like every other airline's</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="flex-shrink-0 w-3 h-3 bg-acro-teal rounded-full mt-2"></div>
+                                <span class="text-slate-700">Rising maintenance costs from seats that weren't built for real-world operational demands</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="flex-shrink-0 w-3 h-3 bg-acro-teal rounded-full mt-2"></div>
+                                <span class="text-slate-700">Suppliers who treat you as a transaction, not a partnership</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="flex-shrink-0 w-3 h-3 bg-acro-teal rounded-full mt-2"></div>
+                                <span class="text-slate-700">Long lead times and inflexible processes that derail fleet plans</span>
+                            </li>
+                            <li class="flex gap-4">
+                                <div class="flex-shrink-0 w-3 h-3 bg-acro-teal rounded-full mt-2"></div>
+                                <span class="text-slate-700">The nagging worry that you're paying too much for too little over the seat's lifetime</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-950 text-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                    <!-- Left: Guide Intro -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                            Why Acro
+                        </p>
+                        <h2 class="font-outfit text-3xl md:text-4xl font-bold mb-6">
+                            20 Years of Engineering Seats That Airlines — and Passengers — Love
+                        </h2>
+                        <blockquote class="border-l-4 border-acro-teal pl-6 mb-6 italic text-lg text-slate-300">
+                            We understand the weight of this decision. Seating touches every passenger, every flight, every day — for years. The pressure to get it right is immense. That's exactly why we exist.
+                        </blockquote>
+                        <p class="text-slate-400 leading-relaxed">
+                            For two decades, Acro has been perfecting the art and science of aircraft seating. We don't just build seats. We engineer partnerships.
+                        </p>
+                    </div>
+
+                    <!-- Right: Engineer Image -->
+                    <div class="reveal-on-scroll opacity-0 overflow-hidden rounded-lg">
+                        <img src="images/home-page-careers-banner@2x-1-scaled.jpg" alt="Acro engineer at CAD workstation" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Credentials Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Airbus Approved Linefit Supplier</h3>
+                        <p class="text-sm text-slate-300">Premium Supplier Award 2023</p>
+                    </div>
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Full Certification</h3>
+                        <p class="text-sm text-slate-300">EASA ETSO & FAA TSO Certified</p>
+                    </div>
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Quality Management</h3>
+                        <p class="text-sm text-slate-300">AS9100 Rev D Certified</p>
+                    </div>
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Global Reach</h3>
+                        <p class="text-sm text-slate-300">28+ Airline Customers Worldwide</p>
+                    </div>
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Purpose-Built Facility</h3>
+                        <p class="text-sm text-slate-300">100,000 sq ft UK HQ</p>
+                    </div>
+                    <div class="reveal-on-scroll opacity-0 p-6 border border-white/10 rounded-lg hover:bg-white/5 transition-colors duration-300">
+                        <h3 class="font-outfit font-semibold text-lg mb-2">Always There</h3>
+                        <p class="text-sm text-slate-300">Global Support: UK · USA · China · Singapore</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-50">
+            <div class="max-w-4xl mx-auto">
+                <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-16 text-center">
+                    What Airlines Say
+                </p>
+
+                <div class="space-y-12">
+                    <!-- Testimonial 1 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 md:p-12 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="text-5xl text-acro-teal opacity-20 mb-4">"</div>
+                        <p class="text-lg md:text-xl italic text-slate-800 mb-6 leading-relaxed">
+                            We needed a seating partner who could deliver a bespoke economy product that reflected our brand — not an off-the-shelf compromise. Acro's team worked alongside ours from day one, and the result exceeded our expectations. The seats look stunning, passengers love them, and the maintenance simplicity has been a genuine operational win.
+                        </p>
+                        <p class="font-semibold text-slate-900">Fleet Interiors Director</p>
+                        <p class="text-sm text-slate-600">European Leisure Airline</p>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 md:p-12 rounded-lg border border-slate-200 shadow-sm md:ml-12">
+                        <div class="text-5xl text-acro-teal opacity-20 mb-4">"</div>
+                        <p class="text-lg md:text-xl italic text-slate-800 mb-6 leading-relaxed">
+                            What sets Acro apart is the partnership. They didn't just deliver seats — they became part of our cabin team. The AcroCare support has been exceptional, especially the proactive spares management. We've seen a measurable reduction in seat-related downtime since switching.
+                        </p>
+                        <p class="font-semibold text-slate-900">VP Procurement</p>
+                        <p class="text-sm text-slate-600">North American Carrier</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plan Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-100">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll opacity-0">
+                    <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                        How We Work
+                    </p>
+                    <h2 class="font-outfit text-3xl md:text-4xl font-bold mb-4">
+                        Three Steps to Seating That Transforms Your Airline
+                    </h2>
+                    <p class="text-lg text-slate-600">
+                        From your vision to the cabin, a partnership built on expertise and collaboration.
+                    </p>
+                </div>
+
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-8 items-start">
+                        <div class="flex-shrink-0">
+                            <span class="text-6xl font-outfit font-bold text-slate-200">1</span>
+                            <div class="w-1 h-16 bg-acro-teal mx-auto mt-2"></div>
+                        </div>
+                        <div class="pt-2">
+                            <h3 class="font-outfit text-xl font-semibold mb-2">Share Your Vision</h3>
+                            <p class="text-slate-700 leading-relaxed">
+                                We start by listening. What does your brand need? What are your passengers experiencing? What operational constraints matter most? This isn't a brief — it's a conversation where we become experts in your airline, your routes, your goals. Then we translate that vision into a detailed engineering specification.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-8 items-start">
+                        <div class="flex-shrink-0">
+                            <span class="text-6xl font-outfit font-bold text-slate-200">2</span>
+                            <div class="w-1 h-16 bg-acro-teal mx-auto mt-2"></div>
+                        </div>
+                        <div class="pt-2">
+                            <h3 class="font-outfit text-xl font-semibold mb-2">We Design & Engineer Together</h3>
+                            <p class="text-slate-700 leading-relaxed">
+                                Your cabin team, our design engineers, and our manufacturing experts collaborate iteratively. CAD renders, material samples, mock-ups, compliance reviews — we move at pace but never sacrifice quality. You have veto power at every stage. This is co-creation, not compromise.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-8 items-start">
+                        <div class="flex-shrink-0">
+                            <span class="text-6xl font-outfit font-bold text-slate-200">3</span>
+                            <div class="w-1 h-16 bg-acro-teal mx-auto mt-2"></div>
+                        </div>
+                        <div class="pt-2">
+                            <h3 class="font-outfit text-xl font-semibold mb-2">We Deliver & Support for Life</h3>
+                            <p class="text-slate-700 leading-relaxed">
+                                Manufacturing begins. Your seats are built to specification at our UK HQ, tested rigorously, and delivered on schedule. Then AcroCare™ kicks in — your dedicated Key Account Manager, proactive spares forecasting, technical support, engineering updates, and a partnership that lasts for the entire life of the fleet.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll opacity-0">
+                    <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                        Our Services
+                    </p>
+                    <h2 class="font-outfit text-3xl md:text-4xl font-bold">
+                        What We Offer
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Service 1 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Economy Class
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Comfort That Scales</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Our economy range (Series 6, 7, 8, 9) delivers exceptional passenger comfort in minimum pitch — without ergonomic compromise. Every inch designed for both passenger delight and airline efficiency.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Business Class
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Premium Without Compromise</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Purpose-built domestic business class seating that redefines premium. Direct aisle access, lie-flat options, power and connectivity integrated seamlessly, and a design language that commands respect.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Custom Design
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Your Brief. Our Expertise.</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Don't see exactly what you need? Let's create it. Full bespoke design and engineering for any brief — from legacy fleet modifications to purpose-built regional seating solutions.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Aftercare
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Partnership That Lasts</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            AcroCare™ includes dedicated Key Account Managers, proactive spares forecasting, technical support, engineering updates, and a commitment that lasts for the entire lifetime of your fleet.
+                        </p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Compliance
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Cleared for Takeoff</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Full EASA and FAA certification management. We handle every compliance requirement, every test, every certification mark so you can focus on flying your fleet.
+                        </p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="reveal-on-scroll opacity-0 bg-white p-8 rounded-lg border border-slate-200 hover:shadow-lg transition-all duration-300">
+                        <p class="text-xs uppercase tracking-widest text-acro-teal font-semibold mb-3">
+                            Manufacturing
+                        </p>
+                        <h3 class="font-outfit text-xl font-semibold mb-4">Scale Without Borders</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            UK headquarters for design and primary manufacturing. Global supply chain coordination with manufacturing partners in the USA, China, and Singapore for speed and scale.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stakes Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-slate-950 text-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll opacity-0">
+                    <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                        Why This Matters
+                    </p>
+                    <h2 class="font-outfit text-3xl md:text-4xl font-bold">
+                        The Cost of Getting It Wrong
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Without Right Design Partner -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <h3 class="font-outfit text-xl font-semibold text-acro-gold mb-4">Without the Right Design Partner</h3>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Your cabin becomes generic — indistinguishable from competitors</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Seating defects multiply, cascading into maintenance nightmares</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">You're stuck with a 12+ year commitment to a substandard product</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Without Operational Reliability -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <h3 class="font-outfit text-xl font-semibold text-acro-gold mb-4">Without Operational Reliability</h3>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Frequent seat-related technical checks ground aircraft</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Spare parts become unavailable, leaving you with unserviceable seats</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Your supplier moves on; you're left managing the fleet alone</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Without True Partnership -->
+                    <div class="reveal-on-scroll opacity-0">
+                        <h3 class="font-outfit text-xl font-semibold text-acro-gold mb-4">Without a True Partnership</h3>
+                        <ul class="space-y-3">
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">You negotiate every change like an adversary, not a partner</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">Technical support means lengthy email threads and expensive site visits</span>
+                            </li>
+                            <li class="flex gap-3">
+                                <div class="flex-shrink-0 w-2 h-2 bg-acro-teal rounded-full mt-1.5"></div>
+                                <span class="text-slate-300">You lose the agility to adapt your seating as your routes and customers evolve</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Cost Impact -->
+                    <div class="reveal-on-scroll opacity-0 flex flex-col justify-end">
+                        <div class="bg-white/5 border border-white/10 rounded-lg p-6">
+                            <p class="text-slate-300 italic">
+                                "The wrong seating partner doesn't just cost money today — it costs you competitive advantage, passenger satisfaction, and operational peace of mind for the next decade."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success/Transformation Section -->
+        <section class="relative py-20 md:py-28 px-6 md:px-8 bg-cover bg-center text-white" style="background-image: url('images/Domestic-Business-Class-Header-image-1024x576.jpg')">
+            <!-- Dark overlay -->
+            <div class="absolute inset-0 bg-slate-950/60"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-on-scroll opacity-0">
+                    <p class="text-sm uppercase tracking-widest text-acro-teal font-semibold mb-4">
+                        The Transformation
+                    </p>
+                    <h2 class="font-outfit text-3xl md:text-4xl font-bold mb-4">
+                        What Success Looks Like
+                    </h2>
+                    <p class="text-lg text-slate-200 max-w-2xl mx-auto">
+                        When you partner with Acro, you're not just upgrading your seats — you're investing in a competitive advantage that touches every passenger, every flight, every day.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Point 1 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">Passengers Feel the Difference</h3>
+                            <p class="text-slate-200">From the moment they sit down, passengers experience seating engineered for comfort. Word spreads. Satisfaction goes up. Loyalty follows.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">Your Brand Comes Alive in the Cabin</h3>
+                            <p class="text-slate-200">Bespoke design means your seating tells your story. It's not generic. It's distinctly yours — a visual and tactile expression of your brand promise.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">Maintenance Becomes Simple</h3>
+                            <p class="text-slate-200">Smart design and AcroCare™ support mean fewer technical checks, faster turnarounds, and dramatically reduced downtime.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 4 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">Total Cost of Ownership Drops</h3>
+                            <p class="text-slate-200">Premium upfront quality translates to lower maintenance, fewer replacements, and significantly better lifetime value.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 5 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">You Have a Partner Who Stays</h3>
+                            <p class="text-slate-200">Not a vendor. A partner. Someone invested in your success for the entire lifetime of your fleet, with proactive support that anticipates needs.</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 6 -->
+                    <div class="reveal-on-scroll opacity-0 flex gap-4">
+                        <div class="flex-shrink-0">
+                            <div class="success-icon-circle">
+                                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-outfit font-semibold text-lg mb-2">You Made the Right Call</h3>
+                            <p class="text-slate-200">Years later, when passengers still rave about your seats, when maintenance is still simple, when your brand is still distinguishable — you'll know you made the right decision.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 md:py-28 px-6 md:px-8 bg-acro-teal text-white">
+            <div class="max-w-3xl mx-auto text-center reveal-on-scroll opacity-0">
+                <h2 class="font-outfit text-3xl md:text-4xl font-bold mb-4">
+                    Ready to Transform Your Cabin Experience?
+                </h2>
+                <p class="text-lg text-white/90 mb-8">
+                    Let's explore what bespoke seating could mean for your airline. No obligations. Just a conversation between partners.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <button class="cta-button px-8 py-4 bg-white text-acro-teal font-semibold rounded-lg hover:bg-slate-50 transition-all duration-300">
+                        Request Your Consultation
+                    </button>
+                    <button class="cta-button px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300">
+                        Explore Our Product Range
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-16 px-6 md:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <h4 class="font-outfit font-semibold text-white mb-4">Acro Aircraft Seating</h4>
+                    <div class="text-sm leading-relaxed space-y-1">
+                        <p>Eldon Way, Crick Industrial Estate</p>
+                        <p>Crick, Northampton NN6 7SL, UK</p>
+                    </div>
+                    <div class="text-sm mt-4 space-y-1">
+                        <p><a href="tel:+441788227600" class="hover:text-acro-teal transition-colors">+44 1788 227 600</a></p>
+                        <p><a href="tel:+441788227601" class="hover:text-acro-teal transition-colors">Sales: +44 1788 227 601</a></p>
+                        <p><a href="tel:+441788227606" class="hover:text-acro-teal transition-colors">Support: +44 1788 227 606</a></p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-outfit font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#products" class="hover:text-acro-teal transition-colors">Products</a></li>
+                        <li><a href="#about" class="hover:text-acro-teal transition-colors">About</a></li>
+                        <li><a href="#support" class="hover:text-acro-teal transition-colors">Support</a></li>
+                        <li><a href="#news" class="hover:text-acro-teal transition-colors">News</a></li>
+                        <li><a href="#contact" class="hover:text-acro-teal transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- About -->
+                <div>
+                    <h4 class="font-outfit font-semibold text-white mb-4">About</h4>
+                    <p class="text-sm leading-relaxed mb-4">20 years of engineering excellence. 28+ airline partnerships. Trusted by the world's leading carriers.</p>
+                    <div class="text-sm space-y-1 text-slate-500">
+                        <p>Companies House: 05859680</p>
+                        <p>Airbus Approved Linefit Supplier</p>
+                        <p>EASA Part 145 Approved</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>Demo built by Dreamfree · dreamfree.co.uk</p>
+                <p>© 2026 Acro Aircraft Seating Limited</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+
+        <!-- Card -->
+        <div class="relative bg-white rounded-xl shadow-2xl max-w-lg w-full p-8 animate-slideUp" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+            <!-- Close Button -->
+            <button class="absolute top-6 right-6 text-slate-400 hover:text-slate-600 transition-colors" aria-label="Close modal">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+
+            <!-- Content -->
+            <h2 id="modalHeading" class="font-outfit text-2xl font-bold text-slate-950 mb-4">
+                This Is a Demo Website
+            </h2>
+            <p class="text-slate-700 mb-6 leading-relaxed">
+                This site was built speculatively to show Acro Aircraft Seating what their website could look like. If you're interested in discussing this further, get in touch with Daniel at Dreamfree.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col gap-3">
+                <a href="tel:07786556885" class="block px-6 py-3 bg-acro-teal text-white font-semibold rounded-lg text-center hover:bg-opacity-90 transition-all duration-300">
+                    Call Daniel: 07786 556 885
+                </a>
+                <a href="mailto:daniel@dreamfree.co.uk?subject=I'm interested in discussing the demo website for Acro Aircraft Seating" class="block px-6 py-3 border-2 border-acro-teal text-acro-teal font-semibold rounded-lg text-center hover:bg-acro-teal/5 transition-all duration-300">
+                    Email Daniel
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js" defer></script>
+</body>
+</html>

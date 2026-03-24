@@ -66,12 +66,19 @@
     <section id="hero" class="hero-section relative bg-slate-950 text-white pt-16" style="height: 250vh;">
             <!-- Sticky viewport container — pinned below navbar (top-16 = 64px) -->
             <div class="hero-sticky sticky top-16 w-full overflow-hidden" style="height: calc(100vh - 4rem);">
-                <!-- Video background -->
+                <!-- Poster background image — always visible as fallback (video covers it when loaded) -->
+                <img
+                    src="images/hero-poster.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    class="absolute inset-0 w-full h-full object-cover object-top"
+                >
+
+                <!-- Video background (overlays the poster once loaded) -->
                 <video
                     id="heroVideo"
                     class="absolute inset-0 w-full h-full object-cover object-top opacity-0 transition-opacity duration-500"
                     src="images/acro-hero-web.mp4"
-                    poster="images/hero-poster.jpg"
                     muted
                     playsinline
                     preload="auto"
@@ -93,24 +100,24 @@
                         <p class="text-lg md:text-xl text-slate-200 mb-4 opacity-0 animate-fadeInUp leading-relaxed" style="animation-delay: 0.3s">
                             Bespoke, lightweight, beautifully engineered seats — designed in partnership with your airline, supported for life by AcroCare™.
                         </p>
-                        <p class="text-base text-slate-300/80 mb-10 opacity-0 animate-fadeInUp leading-relaxed max-w-md" style="animation-delay: 0.35s">
+                        <p class="text-base text-slate-300/80 mb-6 md:mb-10 opacity-0 animate-fadeInUp leading-relaxed max-w-md" style="animation-delay: 0.35s">
                             Every seat is a brand statement, a passenger experience, and an engineering challenge — all at once. Acro has spent 20 years perfecting that balance.
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 opacity-0 animate-fadeInUp" style="animation-delay: 0.4s">
                             <button class="cta-button px-7 py-3.5 bg-acro-teal text-white font-semibold rounded-lg hover:bg-opacity-90 transition-all duration-300 text-sm tracking-wide">
                                 Request Your Bespoke Consultation
                             </button>
-                            <button class="cta-button px-7 py-3.5 border-2 border-white/40 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white/70 transition-all duration-300 text-sm tracking-wide">
+                            <button class="cta-button px-7 py-3.5 bg-white/15 border-2 border-white/60 text-white font-semibold rounded-lg hover:bg-white/25 hover:border-white/80 transition-all duration-300 text-sm tracking-wide backdrop-blur-sm">
                                 Explore Our Product Range
                             </button>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Scroll indicator -->
-                <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-0 animate-fadeInUp hero-scroll-hint" style="animation-delay: 0.8s">
-                    <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Scroll to explore</span>
-                    <div class="w-px h-8 bg-gradient-to-b from-white/50 to-transparent animate-pulse"></div>
+                        <!-- Scroll indicator — inline below CTAs on mobile, absolute-bottom on desktop -->
+                        <div class="mt-10 flex flex-col items-center gap-2 opacity-0 animate-fadeInUp hero-scroll-hint md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 md:mt-0" style="animation-delay: 0.8s">
+                            <span class="text-xs uppercase tracking-widest text-white/50 font-medium">Scroll to explore</span>
+                            <div class="w-px h-8 bg-gradient-to-b from-white/50 to-transparent animate-pulse"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
     </section>

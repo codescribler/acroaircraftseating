@@ -245,6 +245,16 @@ button {
     pointer-events: none;
 }
 
+/* On mobile, scroll hint sits in the content flow below CTAs */
+@media (max-width: 767px) {
+    .hero-scroll-hint {
+        position: static;
+        transform: none;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 @keyframes gentlePulse {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }

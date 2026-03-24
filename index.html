@@ -124,14 +124,24 @@
 
     <!-- Mobile-only: Video scroll section — scrubs the video on scroll as a standalone section -->
     <section id="mobileVideoSection" class="mobile-video-section relative bg-slate-950" aria-hidden="true">
-        <div class="mobile-video-sticky w-full overflow-hidden">
+        <div class="mobile-video-sticky relative w-full overflow-hidden">
+            <!-- Poster fallback while video loads -->
+            <img
+                src="images/hero-poster.jpg"
+                alt=""
+                aria-hidden="true"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+            >
+            <!-- Video — scrubbed via JS on scroll -->
             <video
                 id="mobileHeroVideo"
                 class="absolute inset-0 w-full h-full object-cover object-top"
                 src="images/acro-hero-web.mp4"
+                poster="images/hero-poster.jpg"
                 muted
                 playsinline
                 preload="auto"
+                style="z-index: 1;"
             ></video>
         </div>
     </section>

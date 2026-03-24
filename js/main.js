@@ -341,7 +341,11 @@ function setupDesktopScrollVideo() {
 }
 
 /**
- * MOBILE: scroll-linked video in a dedicated section below the hero
+ * MOBILE: scroll-linked video in a dedicated section below the hero.
+ *
+ * iOS Safari won't render video frames via currentTime until the video
+ * has been "unlocked" with a play() call triggered by a user gesture.
+ * We unlock on the first touchstart, then scrub via currentTime.
  */
 function setupMobileScrollVideo() {
     const section = document.getElementById('mobileVideoSection');
@@ -353,9 +357,39 @@ function setupMobileScrollVideo() {
     let targetTime = 0;
     let currentTime = 0;
     let animating = true;
+    let videoUnlocked = false;
 
     const LERP_FACTOR = 0.5;
     const EPSILON = 0.001;
+
+    /**
+     * Unlock the video for iOS — must happen inside a user gesture.
+     * play() returns a promise; once resolved we pause and can freely
+     * set currentTime to scrub frames.
+     */
+    function unlockVideo() {
+        if (videoUnlocked) return;
+        videoUnlocked = true;
+
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                video.pause();
+                video.currentTime = 0;
+            }).catch(() => {
+                // play() was blocked — try again on next gesture
+                videoUnlocked = false;
+            });
+        } else {
+            video.pause();
+            video.currentTime = 0;
+        }
+    }
+
+    // Unlock on first touch anywhere on the page
+    document.addEventListener('touchstart', unlockVideo, { once: true, passive: true });
+    // Also try on first scroll (covers non-touch gestures)
+    document.addEventListener('scroll', unlockVideo, { once: true, passive: true });
 
     function onMetadataReady() {
         videoDuration = video.duration;

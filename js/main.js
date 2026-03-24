@@ -341,11 +341,12 @@ function setupDesktopScrollVideo() {
 }
 
 /**
- * MOBILE: scroll-linked video in a dedicated section below the hero.
+ * MOBILE: autoplay video in a dedicated section below the hero.
  *
- * iOS Safari won't render video frames via currentTime until the video
- * has been "unlocked" with a play() call triggered by a user gesture.
- * We unlock on the first touchstart, then scrub via currentTime.
+ * iOS Safari blocks frame-level scrubbing via currentTime, so instead
+ * we autoplay the video (muted + playsinline) and use IntersectionObserver
+ * to play when visible and pause when off-screen. The sticky container
+ * keeps the video pinned in view while the user scrolls through the section.
  */
 function setupMobileScrollVideo() {
     const section = document.getElementById('mobileVideoSection');
@@ -353,89 +354,29 @@ function setupMobileScrollVideo() {
 
     if (!section || !video) return;
 
-    let videoDuration = 0;
-    let targetTime = 0;
-    let currentTime = 0;
-    let animating = true;
-    let videoUnlocked = false;
-
-    const LERP_FACTOR = 0.5;
-    const EPSILON = 0.001;
-
-    /**
-     * Unlock the video for iOS — must happen inside a user gesture.
-     * play() returns a promise; once resolved we pause and can freely
-     * set currentTime to scrub frames.
-     */
-    function unlockVideo() {
-        if (videoUnlocked) return;
-        videoUnlocked = true;
-
-        const playPromise = video.play();
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                video.pause();
-                video.currentTime = 0;
-            }).catch(() => {
-                // play() was blocked — try again on next gesture
-                videoUnlocked = false;
+    // Use IntersectionObserver to play/pause based on visibility
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(() => {
+                        // Autoplay blocked — will start on first user gesture
+                    });
+                } else {
+                    video.pause();
+                }
             });
-        } else {
-            video.pause();
-            video.currentTime = 0;
-        }
-    }
+        },
+        { threshold: 0.25 }
+    );
 
-    // Unlock on first touch anywhere on the page
-    document.addEventListener('touchstart', unlockVideo, { once: true, passive: true });
-    // Also try on first scroll (covers non-touch gestures)
-    document.addEventListener('scroll', unlockVideo, { once: true, passive: true });
+    observer.observe(section);
 
-    function onMetadataReady() {
-        videoDuration = video.duration;
-        video.currentTime = 0;
-        currentTime = 0;
-    }
-
-    if (video.readyState >= 2) {
-        onMetadataReady();
-    } else {
-        video.addEventListener('loadeddata', onMetadataReady);
-    }
-
-    function getScrollProgress() {
-        const rect = section.getBoundingClientRect();
-        const sectionHeight = section.offsetHeight;
-        const viewportHeight = window.innerHeight;
-        const scrollableDistance = sectionHeight - viewportHeight;
-        const scrolled = -rect.top;
-        return Math.max(0, Math.min(1, scrolled / scrollableDistance));
-    }
-
-    function tick() {
-        if (!animating || !videoDuration) {
-            requestAnimationFrame(tick);
-            return;
-        }
-
-        const scrollProgress = getScrollProgress();
-        targetTime = scrollProgress * videoDuration;
-
-        const delta = targetTime - currentTime;
-        if (Math.abs(delta) > EPSILON) {
-            currentTime += delta * LERP_FACTOR;
-            video.currentTime = currentTime;
-        } else {
-            currentTime = targetTime;
-        }
-
-        requestAnimationFrame(tick);
-    }
-
-    requestAnimationFrame(tick);
-
+    // Pause when tab is hidden
     document.addEventListener('visibilitychange', () => {
-        animating = !document.hidden;
+        if (document.hidden) {
+            video.pause();
+        }
     });
 }
 

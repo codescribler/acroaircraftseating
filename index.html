@@ -132,7 +132,7 @@
                 aria-hidden="true"
                 class="absolute inset-0 w-full h-full object-cover object-top"
             >
-            <!-- Video — scrubbed via JS on scroll -->
+            <!-- Video — autoplays when visible, pauses when off-screen -->
             <video
                 id="mobileHeroVideo"
                 class="absolute inset-0 w-full h-full object-cover object-top"
@@ -140,6 +140,7 @@
                 poster="images/hero-poster.jpg"
                 muted
                 playsinline
+                autoplay
                 preload="auto"
                 style="z-index: 1;"
             ></video>

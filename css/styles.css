@@ -256,7 +256,7 @@ button {
 @media (max-width: 767px) {
     .mobile-video-section {
         display: block;
-        height: 250vh; /* Scroll distance for the video */
+        height: 100vh; /* Just enough for the video to play while sticky */
     }
 
     .mobile-video-sticky {
@@ -374,9 +374,16 @@ section {
     overflow: hidden;
 }
 
-/* Hero needs overflow visible for position:sticky to work */
+/* Hero needs overflow visible for position:sticky to work on desktop */
 #hero {
     overflow: visible;
+}
+
+/* On mobile, hero is static — clip any overflow so it doesn't leak into the next section */
+@media (max-width: 767px) {
+    #hero {
+        overflow: hidden;
+    }
 }
 
 /* ============================================================================

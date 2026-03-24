@@ -214,12 +214,14 @@ button {
    ============================================================================ */
 .hero-section {
     position: relative;
-    height: 100svh; /* Mobile: single viewport, no scroll distance */
+    min-height: 100svh; /* Mobile: at least one viewport, but grows to fit content */
+    height: auto;
 }
 
 @media (min-width: 768px) {
     .hero-section {
         height: 250vh; /* Desktop: tall section for scroll-linked video */
+        min-height: auto;
     }
 }
 
@@ -234,9 +236,13 @@ button {
 
 /* Mobile: hero is a static section — no sticky, no scroll video */
 @media (max-width: 767px) {
+    .hero-section {
+        padding-bottom: 2rem; /* Breathing room below CTAs before the video section */
+    }
+
     .hero-sticky {
         position: relative !important;
-        height: 100% !important;
+        height: auto !important;
     }
 
     #heroVideo {
@@ -376,13 +382,6 @@ section {
 /* Hero needs overflow visible for position:sticky to work on desktop */
 #hero {
     overflow: visible;
-}
-
-/* On mobile, hero is static — clip any overflow so it doesn't leak into the next section */
-@media (max-width: 767px) {
-    #hero {
-        overflow: hidden;
-    }
 }
 
 /* ============================================================================

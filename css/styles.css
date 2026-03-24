@@ -210,10 +210,17 @@ button {
 }
 
 /* ============================================================================
-   HERO SECTION — SCROLL-LINKED VIDEO
+   HERO SECTION — SCROLL-LINKED VIDEO (desktop) / STATIC (mobile)
    ============================================================================ */
 .hero-section {
     position: relative;
+    height: 100svh; /* Mobile: single viewport, no scroll distance */
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        height: 250vh; /* Desktop: tall section for scroll-linked video */
+    }
 }
 
 .hero-sticky {
@@ -223,6 +230,41 @@ button {
 .hero-section video {
     will-change: opacity;
     transition: opacity 0.3s ease;
+}
+
+/* Mobile: hero is a static section — no sticky, no scroll video */
+@media (max-width: 767px) {
+    .hero-sticky {
+        position: relative !important;
+        height: 100% !important;
+    }
+
+    #heroVideo {
+        display: none; /* Hide video in hero on mobile — separate section handles it */
+    }
+}
+
+/* ============================================================================
+   MOBILE VIDEO SCROLL SECTION
+   Visible only on mobile — provides a dedicated scroll-linked video experience
+   between the hero and the main content.
+   ============================================================================ */
+.mobile-video-section {
+    display: none; /* Hidden on desktop */
+}
+
+@media (max-width: 767px) {
+    .mobile-video-section {
+        display: block;
+        height: 250vh; /* Scroll distance for the video */
+    }
+
+    .mobile-video-sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 .hero-section h1 {
@@ -417,11 +459,6 @@ select:focus-visible {
 }
 
 @media (max-width: 768px) {
-    /* On mobile, reduce the scroll distance for the video hero */
-    .hero-section {
-        height: 200vh;
-    }
-
     /* Reduce animation complexity on smaller screens */
     @media (prefers-reduced-motion: reduce) {
         * {

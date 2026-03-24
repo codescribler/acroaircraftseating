@@ -237,12 +237,29 @@ function setupKeyboardNav() {
    ============================================================================ */
 
 /**
- * Tie the hero video's currentTime to scroll position using a smooth
+ * Tie a video's currentTime to scroll position using a smooth
  * lerp (linear interpolation) loop. Instead of jumping directly to
  * the target frame on every scroll event (which causes jank), we
  * run a continuous rAF loop that eases toward the target time.
+ *
+ * On DESKTOP: the video lives inside the hero section (scroll-linked hero).
+ * On MOBILE: the hero is static; a separate mobile-only section below
+ *            the hero contains the video and provides the scroll distance.
  */
 function setupScrollLinkedVideo() {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+        setupMobileScrollVideo();
+    } else {
+        setupDesktopScrollVideo();
+    }
+}
+
+/**
+ * DESKTOP: scroll-linked video inside the hero section (original behavior)
+ */
+function setupDesktopScrollVideo() {
     const heroSection = document.getElementById('hero');
     const video = document.getElementById('heroVideo');
     const heroContent = heroSection?.querySelector('.hero-content');
@@ -251,36 +268,27 @@ function setupScrollLinkedVideo() {
     if (!heroSection || !video) return;
 
     let videoDuration = 0;
-    let targetTime = 0;      // Where scroll says we should be
-    let currentTime = 0;     // Where we actually are (smoothed)
-    let animating = true;    // Keep the rAF loop running
+    let targetTime = 0;
+    let currentTime = 0;
+    let animating = true;
 
-    // Lerp factor — with all-keyframe video, we can track very tightly
     const LERP_FACTOR = 0.5;
-    // Stop lerping when difference is negligible
     const EPSILON = 0.001;
 
-    // Wait for video metadata
     function onMetadataReady() {
         videoDuration = video.duration;
         video.currentTime = 0;
         currentTime = 0;
-        // Fade in once first frame is decoded and ready
         video.classList.remove('opacity-0');
         video.classList.add('opacity-100');
     }
 
     if (video.readyState >= 2) {
-        // Already have enough data
         onMetadataReady();
     } else {
-        // Wait for enough data to display the first frame
         video.addEventListener('loadeddata', onMetadataReady);
     }
 
-    /**
-     * Calculate scroll progress (0–1) through the hero section
-     */
     function getScrollProgress() {
         const rect = heroSection.getBoundingClientRect();
         const sectionHeight = heroSection.offsetHeight;
@@ -290,9 +298,6 @@ function setupScrollLinkedVideo() {
         return Math.max(0, Math.min(1, scrolled / scrollableDistance));
     }
 
-    /**
-     * Continuous rAF loop — lerps video.currentTime toward the target
-     */
     function tick() {
         if (!animating || !videoDuration) {
             requestAnimationFrame(tick);
@@ -302,7 +307,6 @@ function setupScrollLinkedVideo() {
         const scrollProgress = getScrollProgress();
         targetTime = scrollProgress * videoDuration;
 
-        // Lerp toward target
         const delta = targetTime - currentTime;
         if (Math.abs(delta) > EPSILON) {
             currentTime += delta * LERP_FACTOR;
@@ -311,7 +315,7 @@ function setupScrollLinkedVideo() {
             currentTime = targetTime;
         }
 
-        // Fade out hero text (start at 10% scroll, fully gone by 40%)
+        // Fade out hero text
         if (heroContent) {
             const textFade = 1 - Math.max(0, Math.min(1, (scrollProgress - 0.08) / 0.3));
             heroContent.style.opacity = textFade;
@@ -329,10 +333,73 @@ function setupScrollLinkedVideo() {
         requestAnimationFrame(tick);
     }
 
-    // Start the loop
     requestAnimationFrame(tick);
 
-    // Pause loop when page is hidden (performance)
+    document.addEventListener('visibilitychange', () => {
+        animating = !document.hidden;
+    });
+}
+
+/**
+ * MOBILE: scroll-linked video in a dedicated section below the hero
+ */
+function setupMobileScrollVideo() {
+    const section = document.getElementById('mobileVideoSection');
+    const video = document.getElementById('mobileHeroVideo');
+
+    if (!section || !video) return;
+
+    let videoDuration = 0;
+    let targetTime = 0;
+    let currentTime = 0;
+    let animating = true;
+
+    const LERP_FACTOR = 0.5;
+    const EPSILON = 0.001;
+
+    function onMetadataReady() {
+        videoDuration = video.duration;
+        video.currentTime = 0;
+        currentTime = 0;
+    }
+
+    if (video.readyState >= 2) {
+        onMetadataReady();
+    } else {
+        video.addEventListener('loadeddata', onMetadataReady);
+    }
+
+    function getScrollProgress() {
+        const rect = section.getBoundingClientRect();
+        const sectionHeight = section.offsetHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollableDistance = sectionHeight - viewportHeight;
+        const scrolled = -rect.top;
+        return Math.max(0, Math.min(1, scrolled / scrollableDistance));
+    }
+
+    function tick() {
+        if (!animating || !videoDuration) {
+            requestAnimationFrame(tick);
+            return;
+        }
+
+        const scrollProgress = getScrollProgress();
+        targetTime = scrollProgress * videoDuration;
+
+        const delta = targetTime - currentTime;
+        if (Math.abs(delta) > EPSILON) {
+            currentTime += delta * LERP_FACTOR;
+            video.currentTime = currentTime;
+        } else {
+            currentTime = targetTime;
+        }
+
+        requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+
     document.addEventListener('visibilitychange', () => {
         animating = !document.hidden;
     });

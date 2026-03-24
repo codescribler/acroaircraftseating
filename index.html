@@ -62,8 +62,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section — Scroll-Linked Video (outside main so it starts at scroll 0) -->
-    <section id="hero" class="hero-section relative bg-slate-950 text-white pt-16" style="height: 250vh;">
+    <!-- Hero Section — Scroll-Linked Video on desktop, static on mobile -->
+    <section id="hero" class="hero-section relative bg-slate-950 text-white pt-16">
             <!-- Sticky viewport container — pinned below navbar (top-16 = 64px) -->
             <div class="hero-sticky sticky top-16 w-full overflow-hidden" style="height: calc(100vh - 4rem);">
                 <!-- Poster background image — always visible as fallback (video covers it when loaded) -->
@@ -120,6 +120,20 @@
                     </div>
                 </div>
             </div>
+    </section>
+
+    <!-- Mobile-only: Video scroll section — scrubs the video on scroll as a standalone section -->
+    <section id="mobileVideoSection" class="mobile-video-section relative bg-slate-950" aria-hidden="true">
+        <div class="mobile-video-sticky w-full overflow-hidden">
+            <video
+                id="mobileHeroVideo"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+                src="images/acro-hero-web.mp4"
+                muted
+                playsinline
+                preload="auto"
+            ></video>
+        </div>
     </section>
 
     <main id="main">

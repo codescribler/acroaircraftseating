@@ -250,27 +250,6 @@ button {
     }
 }
 
-/* ============================================================================
-   MOBILE VIDEO SCROLL SECTION
-   Visible only on mobile — provides a dedicated scroll-linked video experience
-   between the hero and the main content.
-   ============================================================================ */
-.mobile-video-section {
-    display: none; /* Hidden on desktop */
-}
-
-@media (max-width: 767px) {
-    .mobile-video-section {
-        display: block;
-    }
-
-    .mobile-video-sticky {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-    }
-}
 
 .hero-section h1 {
     letter-spacing: -0.02em;

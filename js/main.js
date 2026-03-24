@@ -237,29 +237,14 @@ function setupKeyboardNav() {
    ============================================================================ */
 
 /**
- * Tie a video's currentTime to scroll position using a smooth
- * lerp (linear interpolation) loop. Instead of jumping directly to
- * the target frame on every scroll event (which causes jank), we
- * run a continuous rAF loop that eases toward the target time.
- *
- * On DESKTOP: the video lives inside the hero section (scroll-linked hero).
- * On MOBILE: the hero is static; a separate mobile-only section below
- *            the hero contains the video and provides the scroll distance.
+ * Tie the hero video's currentTime to scroll position using a smooth
+ * lerp (linear interpolation) loop. Desktop only — on mobile the hero
+ * is a static section with a poster image (no scroll-linked video).
  */
 function setupScrollLinkedVideo() {
-    const isMobile = window.innerWidth < 768;
+    // Skip on mobile — no scroll-linked video
+    if (window.innerWidth < 768) return;
 
-    if (isMobile) {
-        setupMobileScrollVideo();
-    } else {
-        setupDesktopScrollVideo();
-    }
-}
-
-/**
- * DESKTOP: scroll-linked video inside the hero section (original behavior)
- */
-function setupDesktopScrollVideo() {
     const heroSection = document.getElementById('hero');
     const video = document.getElementById('heroVideo');
     const heroContent = heroSection?.querySelector('.hero-content');
@@ -337,46 +322,6 @@ function setupDesktopScrollVideo() {
 
     document.addEventListener('visibilitychange', () => {
         animating = !document.hidden;
-    });
-}
-
-/**
- * MOBILE: autoplay video in a dedicated section below the hero.
- *
- * iOS Safari blocks frame-level scrubbing via currentTime, so instead
- * we autoplay the video (muted + playsinline) and use IntersectionObserver
- * to play when visible and pause when off-screen. The sticky container
- * keeps the video pinned in view while the user scrolls through the section.
- */
-function setupMobileScrollVideo() {
-    const section = document.getElementById('mobileVideoSection');
-    const video = document.getElementById('mobileHeroVideo');
-
-    if (!section || !video) return;
-
-    // Use IntersectionObserver to play/pause based on visibility
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play().catch(() => {
-                        // Autoplay blocked — will start on first user gesture
-                    });
-                } else {
-                    video.pause();
-                }
-            });
-        },
-        { threshold: 0.25 }
-    );
-
-    observer.observe(section);
-
-    // Pause when tab is hidden
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            video.pause();
-        }
     });
 }
 

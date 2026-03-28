@@ -534,3 +534,13 @@ img {
 /* ============================================================================
    END OF STYLES
    ============================================================================ */
+
+/* ---- LAPTOP SCREEN OPTIMISATION (DRE-17) ---- */
+/* Targets 769px–1440px: standard laptop & notebook screens */
+/* Overrides Tailwind md:py-28 (7rem) back to py-20 (5rem) for laptop screens */
+@media (min-width: 769px) and (max-width: 1440px) {
+  section.py-20 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+  }
+}

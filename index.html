@@ -27,11 +27,19 @@
     </script>
     <link rel="stylesheet" href="css/styles.css">
     <script type="text/javascript">
-        (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "vumg7p891a");
+        (function() {
+            try {
+                var p = new URLSearchParams(location.search);
+                if (p.get('df-notrack') === '1') localStorage.setItem('df_notrack', '1');
+                if (p.get('df-notrack') === '0') localStorage.removeItem('df_notrack');
+                if (localStorage.getItem('df_notrack') === '1') return;
+            } catch (e) {}
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "vumg7p891a");
+        })();
     </script>
 </head>
 <body class="font-dm-sans text-slate-900 bg-white">
